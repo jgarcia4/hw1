@@ -10,11 +10,6 @@
 #include <X11/Xlib.h>
 #include <X11/keysym.h>
 #include <GL/glx.h>
-#include <GL/glut.h>
-
-/*extern "C" {
-    	#include "fonts.h"
-}*/
 
 #define WINDOW_WIDTH  500
 #define WINDOW_HEIGHT 360
@@ -58,12 +53,9 @@ void check_mouse(XEvent *e, Game *game);
 int check_keys(XEvent *e, Game *game);
 void movement(Game *game);
 void render(Game *game);
-//void draw_text(const char *, int, int, int);
 
-
-int main(int argc, char **argv)
+int main(void)
 {
-	glutInit(&argc, argv);
 	
 	int done=0;
 	srand(time(NULL));
@@ -95,25 +87,6 @@ int main(int argc, char **argv)
 	return 0;
 }
 
-/*void draw_text(const char *text, int length, int x, int y)  
-{
-        glMatrixMode(GL_PROJECTION);
-        double *matrix = new double[16];
-        glGetDoublev(GL_PROJECTION_MATRIX, matrix);
-        glLoadIdentity();
-        glOrtho(0, 500, 0, 360, -5, 5); 
-        glMatrixMode(GL_MODELVIEW);
-        glLoadIdentity();
-        glPushMatrix();
-        glLoadIdentity();
-        glRasterPos2i(x, y); 
-        for (int i = 0; i < length; i++) 
-                glutBitmapCharacter(GLUT_BITMAP_9_BY_15, (int)text[i]);
-        glPopMatrix();
-        glMatrixMode(GL_PROJECTION);
-        glLoadMatrixd(matrix);
-        glMatrixMode(GL_MODELVIEW);    
-}*/
 
 void set_title(void)
 {
@@ -392,57 +365,6 @@ void render(Game *game)
 		glEnd();
 		glPopMatrix();
 	}
-	
-	//draw text
-	/*std::string text;
-
-	glPushMatrix();
-        text = "Hold 'b' for water";
-        glColor3f(1, 1, 1);
-        draw_text(text.data(), text.size(), 575, WINDOW_HEIGHT - 20);
-        glPopMatrix();
-
-	glPushMatrix();
-        text = "Press ESC to exit";
-        glColor3f(1, 1, 1);
-        draw_text(text.data(), text.size(), 575, WINDOW_HEIGHT - 35);
-        glPopMatrix();
-	
-	glPushMatrix();
-        text = "WATERFALL MODEL";
-        glColor3f(1, 1, 1);
-        draw_text(text.data(), text.size(), 10, WINDOW_HEIGHT - 20);
-        glPopMatrix();
-	 
-	glPushMatrix();
-        text = "Requirements";
-        glColor3f(0, 1, 1);
-        draw_text(text.data(), text.size(), 120, 495);
-        glPopMatrix();
-	 
-	glPushMatrix();
-        text = "Design";
-        glColor3f(0, 1, 1);
-        draw_text(text.data(), text.size(), 230, 420);
-        glPopMatrix();
-	 
-	glPushMatrix();
-        text = "Coding";
-        glColor3f(0, 1, 1);
-        draw_text(text.data(), text.size(), 305, 345);
-        glPopMatrix();
-	 
-	glPushMatrix();
-        text = "Testing";
-        glColor3f(0, 1, 1);
-        draw_text(text.data(), text.size(), 345, 270);
-        glPopMatrix();
-	
-	glPushMatrix();
-        text = "Maintenance";
-        glColor3f(0, 1, 1);
-        draw_text(text.data(), text.size(), 405, 195);
-        glPopMatrix();*/
 }
 
 
